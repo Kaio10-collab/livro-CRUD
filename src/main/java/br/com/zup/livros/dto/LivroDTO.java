@@ -81,7 +81,7 @@ public class LivroDTO {
         livroDTO.setId(livro.getId());
         livroDTO.setTitulo(livro.getTitulo());
         livroDTO.setDescricao(livro.getDescricao());
-        livroDTO.setPreco(livroDTO.getPreco());
+        livroDTO.setPreco(livro.getPreco());
 
         return livroDTO;
     }

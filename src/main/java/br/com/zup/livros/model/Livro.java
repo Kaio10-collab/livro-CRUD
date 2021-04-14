@@ -1,10 +1,9 @@
 package br.com.zup.livros.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "livros/")
+@Table(name = "livros")
 public class Livro {
 
     @Id
@@ -14,17 +13,9 @@ public class Livro {
     private String titulo;
     private String descricao;
     private double preco;
-    private List<Livro> livros;
+
 
     public Livro() {
-    }
-
-    public List<Livro> getLivros() {
-        return livros;
-    }
-
-    public void setLivros(List<Livro> livros) {
-        this.livros = livros;
     }
 
     public String getTitulo() {

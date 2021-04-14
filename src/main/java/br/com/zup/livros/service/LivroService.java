@@ -47,6 +47,6 @@ public class LivroService {
         if (livro.getId() == null) {
             return livroRepository.findAll();
         }
-        return livroRepository.findByAll(livro.getId());
+        return livroRepository.findAll();
     }
 }

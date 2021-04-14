@@ -15,14 +15,14 @@ public class LivroController {
     @Autowired
     private LivroService livroService;
 
-    @PostMapping("{livro}/")
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public Livro cadastroLivro(@RequestBody Livro livro){
         return livroService.cadastrarLivro(livro);
     }
 
-    @GetMapping("{livro}/")
-    public Livro atualizarLivroNaLoja(Livro livro){
+    @PutMapping
+    public Livro atualizarLivroNaLoja( Livro livro){
         Livro livros = livroService.atualizaLivro(livro);
         return livros;
     }

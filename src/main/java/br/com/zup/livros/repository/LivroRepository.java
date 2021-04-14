@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface LivroRepository extends CrudRepository<Livro, Integer> {
 
-    Iterable<Livro> findByAll(int id);
+    Iterable<Livro> findAll();
 }

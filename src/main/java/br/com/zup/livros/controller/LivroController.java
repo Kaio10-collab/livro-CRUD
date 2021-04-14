@@ -21,9 +21,9 @@ public class LivroController {
         return livroService.cadastrarLivro(livro);
     }
 
-    @PutMapping
-    public Livro atualizarLivroNaLoja( Livro livro){
-        Livro livros = livroService.atualizaLivro(livro);
+    @PutMapping("{id}/")
+    public Livro atualizarLivroNaLoja(@PathVariable Integer id){
+        Livro livros = livroService.atualizaLivro(id);
         return livros;
     }
 

@@ -1,13 +1,10 @@
 package br.com.zup.livros.model;
-/**
+
 import javax.persistence.*;
 import java.util.List;
 
-
-  @Entity
-  @Table(name = "livros/")
-
-
+@Entity
+@Table(name = "livros/")
 public class Livro {
 
     @Id
@@ -65,4 +62,3 @@ public class Livro {
 //por exemplo, tente fazer um CRUD de Livros, por enquanto um livro terá os seguintes atributos: título, descrição e preço
 //então você vai fazer um endpoint para cadastrar, atualizar, deletar, buscar por id e um busca todos
 //um endpoint pra cada uma dessas ações que eu disse aí pra cima.
- */

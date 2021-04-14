@@ -21,7 +21,7 @@ public class LivroService {
         return objLivro;
     }
 
-    public Livro atualizarLivro(Livro livro) {
+    public Livro atualizaLivro(Livro livro) {
         if (livroRepository.existsById(livro.getId())) {
             Livro objLivro = cadastrarLivro(livro);
             return objLivro;

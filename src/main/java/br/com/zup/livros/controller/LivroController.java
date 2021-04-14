@@ -22,8 +22,8 @@ public class LivroController {
     }
 
     @GetMapping("{livro}/")
-    public Livro atualizarLivro(Livro livro){
-        Livro livros = livroService.cadastrarLivro(livro);
+    public Livro atualizarLivroNaLoja(Livro livro){
+        Livro livros = livroService.atualizaLivro(livro);
         return livros;
     }
 

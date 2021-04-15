@@ -4,7 +4,6 @@ import br.com.zup.livros.dto.FiltroLivroDTO;
 import br.com.zup.livros.model.Livro;
 import br.com.zup.livros.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,15 +22,15 @@ public class LivroService {
         return objLivro;
     }
 
-    public Livro atualizaLivro(Integer id){
+    public Livro atualizaLivro(Integer id, Livro livro){
         Optional<Livro> optionalLivro = livroRepository.findById(id);
 
         if (!optionalLivro.isPresent())
             throw new RuntimeException("Id não existe");
 
-        livroRepository.save(optionalLivro.get());
-
-        return optionalLivro.get();
+        livro.setId(id);
+        livroRepository.save(livro);
+        return livro;
     }
 
     public void deletarLivro(Integer id){

@@ -1,7 +1,6 @@
 package br.com.zup.livros.dto;
 
 import br.com.zup.livros.model.Livro;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -55,15 +54,6 @@ public class LivroDTO {
         this.preco = preco;
     }
 
-    public Livro converterDTOParaModel(){
-        Livro livro = new Livro();
-
-        livro.setId(this.id);
-        livro.setTitulo(this.titulo);
-        livro.setDescricao(this.descricao);
-        livro.setPreco(this.preco);
-        return livro;
-    }
 
     public static Iterable<LivroDTO> converterIterableDeModelParaDTO(Iterable<Livro> livros){
         List<LivroDTO> livroDTOS = new ArrayList<>();

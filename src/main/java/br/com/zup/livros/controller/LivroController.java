@@ -40,7 +40,7 @@ public class LivroController {
 
     @GetMapping
     public Iterable<LivroDTO> retornarTodosOsLivros (@ModelAttribute FiltroLivroDTO filtro ){
-        Iterable<Livro> albuns = livroService.pesquisarTodoOsLivros(filtro);
-        return LivroDTO.converterIterableDeModelParaDTO(albuns);
+        Iterable<Livro> livros = livroService.pesquisarTodoOsLivros(filtro);
+        return LivroDTO.converterIterableDeModelParaDTO(livros);
     }
 }

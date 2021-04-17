@@ -54,14 +54,12 @@ public class LivroDTO {
         this.preco = preco;
     }
 
-
     public static Iterable<LivroDTO> converterIterableDeModelParaDTO(Iterable<Livro> livros){
         List<LivroDTO> livroDTOS = new ArrayList<>();
 
         for(Livro livro: livros){
             livroDTOS.add(conveterModelParaDTO(livro));
         }
-
         return livroDTOS;
     }
 

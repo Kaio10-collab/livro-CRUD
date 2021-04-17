@@ -14,7 +14,6 @@ public class Livro {
     private String descricao;
     private double preco;
 
-
     public Livro() {
     }
 

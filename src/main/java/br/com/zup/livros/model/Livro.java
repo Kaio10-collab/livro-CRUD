@@ -14,6 +14,9 @@ public class Livro {
     private String descricao;
     private double preco;
 
+    @ManyToOne
+    private Autor autor;
+
     public Livro() {
     }
 
@@ -47,6 +50,14 @@ public class Livro {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
     }
 }
 //por exemplo, tente fazer um CRUD de Livros, por enquanto um livro terá os seguintes atributos: título, descrição e preço

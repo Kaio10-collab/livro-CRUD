@@ -15,32 +15,44 @@ public class LivroController {
     @Autowired
     private LivroService livroService;
 
-    @PostMapping()
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Livro cadastroLivro(@RequestBody Livro livro){
         return livroService.cadastrarLivro(livro);
     }
 
-    @PutMapping("{id}/")
-    public Livro atualizarLivroNaLoja(@PathVariable Integer id, @RequestBody Livro livro){
-        Livro livros = livroService.atualizaLivro(id,livro);
-        return livros;
-    }
-
-    @DeleteMapping("{id}/")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletarLivro(@PathVariable Integer id){
-        livroService.deletarLivro(id);
-    }
-
     @GetMapping("{id}/")
     public Livro pesquisarLivroPeloId(@PathVariable Integer id) {
-        return livroService.buscarLivroPeloId(id);
+        try {
+            return livroService.buscarLivroPeloId(id);
+    } catch (RuntimeException e) {
+            throw new RuntimeException("Id não foi encontrado");
+        }
     }
 
     @GetMapping
     public Iterable<LivroDTO> retornarTodosOsLivros (@ModelAttribute FiltroLivroDTO filtro ){
         Iterable<Livro> livros = livroService.pesquisarTodoOsLivros(filtro);
         return LivroDTO.converterIterableDeModelParaDTO(livros);
+    }
+
+    @PutMapping("{id}/")
+    public Livro atualizarLivroNaLoja(@PathVariable Integer id, @RequestBody Livro livro){
+        try {
+            Livro livros = livroService.atualizaLivro(id,livro);
+            return livros;
+        } catch (RuntimeException e){
+            throw new RuntimeException("Id não foi encontrado");
+        }
+    }
+
+    @DeleteMapping("{id}/")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarLivro(@PathVariable Integer id){
+        try {
+            livroService.deletarLivro(id);
+        }catch (RuntimeException e){
+            throw new RuntimeException("Id não foi encontrado");
+        }
     }
 }

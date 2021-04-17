@@ -22,21 +22,6 @@ public class LivroService {
         return objLivro;
     }
 
-    public Livro atualizaLivro(Integer id, Livro livro){
-        Optional<Livro> optionalLivro = livroRepository.findById(id);
-
-        if (!optionalLivro.isPresent())
-            throw new RuntimeException("Id não existe");
-
-        livro.setId(id);
-        livroRepository.save(livro);
-        return livro;
-    }
-
-    public void deletarLivro(Integer id){
-        livroRepository.deleteById(id);
-    }
-
     public Livro buscarLivroPeloId(Integer id){
         Optional<Livro> optionalLivro = livroRepository.findById(id);
 
@@ -62,5 +47,20 @@ public class LivroService {
             return livroRepository.findAll();
         }
         return livroRepository.findAll();
+    }
+
+    public Livro atualizaLivro(Integer id, Livro livro){
+        Optional<Livro> optionalLivro = livroRepository.findById(id);
+
+        if (!optionalLivro.isPresent())
+            throw new RuntimeException("Id não existe");
+
+        livro.setId(id);
+        livroRepository.save(livro);
+        return livro;
+    }
+
+    public void deletarLivro(Integer id){
+        livroRepository.deleteById(id);
     }
 }

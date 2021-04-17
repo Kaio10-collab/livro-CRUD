@@ -1,6 +1,7 @@
 package br.com.zup.livros.controller;
 
 import br.com.zup.livros.model.Autor;
+import br.com.zup.livros.service.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,11 +21,7 @@ public class AutorController {
 
     @GetMapping("{id}/")
     public Autor pesquisarAutorPeloId(@PathVariable Integer id) {
-        try {
-            return autorService.buscaDoAutorPeloId(id);
-        } catch (RuntimeException e) {
-            throw new RuntimeException("Id não encontrado");
-        }
+            return autorService.buscaDoAutorPeloID(id);
     }
 
     @GetMapping

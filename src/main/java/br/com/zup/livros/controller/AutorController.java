@@ -31,12 +31,8 @@ public class AutorController {
 
     @PutMapping("{id}/")
     public Autor atualizarAutor(@PathVariable Integer id, @RequestBody Autor autor){
-        try {
             Autor autores = autorService.atualizaAutorPeloId(id, autor);
             return autores;
-        }catch (RuntimeException e){
-            throw new RuntimeException("Id não foi encontrado");
-        }
     }
 
     @DeleteMapping("{id}/")

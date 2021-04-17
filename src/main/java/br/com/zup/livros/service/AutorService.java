@@ -37,12 +37,13 @@ public class AutorService {
     public Autor atualizaAutorPeloId(Integer id, Autor autor) {
         Optional<Autor> autorOptional = autorRepository.findById(id);
 
-        if (!autorOptional.isPresent()) {
+        if (!autorOptional.isPresent())
+            throw new RuntimeException("Id não existe");
+
             autor.setId(id);
             autorRepository.save(autor);
+            return autor;
 
-        }
-        return autor;
     }
 
     public void deletarAutorPelaId(Integer id) {

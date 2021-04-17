@@ -1,4 +1,7 @@
 package br.com.zup.livros.repository;
 
-public class AutorRepository {
+import br.com.zup.livros.model.Autor;
+import org.springframework.data.repository.CrudRepository;
+
+public interface AutorRepository extends CrudRepository<Autor, Integer> {
 }
